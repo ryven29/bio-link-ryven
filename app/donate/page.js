@@ -8,6 +8,28 @@ export default function DonatePage() {
   const [redirectCount, setRedirectCount] = useState(null);
   const videoRef = useRef(null);
 
+  // Force autoplay (React tidak selalu menulis atribut `muted` ke HTML awal
+  // sebelum hydration selesai, jadi browser bisa memblokir autoplay).
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    vid.muted = true;
+    vid.defaultMuted = true;
+    const playPromise = vid.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Beberapa browser masih memblokir; coba lagi saat user berinteraksi.
+        const retry = () => {
+          vid.play().catch(() => {});
+          document.removeEventListener('click', retry);
+          document.removeEventListener('touchstart', retry);
+        };
+        document.addEventListener('click', retry, { once: true });
+        document.addEventListener('touchstart', retry, { once: true });
+      });
+    }
+  }, []);
+
   // Glitch title effect
   useEffect(() => {
     const glitchChars = '!<>-_\\/[]{}—=+*^?#________';
@@ -106,11 +128,13 @@ export default function DonatePage() {
 
           <video
             ref={videoRef}
-            src="/video/kitabisa-ads.mp4"
+            src="/kitabisa-ads.mp4"
             autoPlay
             loop
             muted
+            defaultMuted
             playsInline
+            preload="auto"
             style={{
               width: '100%',
               display: 'block',
