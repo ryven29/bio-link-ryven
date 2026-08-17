@@ -106,7 +106,7 @@ export default function DonatePage() {
           {/* YouTube 16:9 wrapper */}
           <div style={{ position: 'relative', paddingBottom: '56.25%', width: '100%', height: 0 }}>
             <iframe
-              src="https://www.youtube.com/embed/UUe7hqH6C0c?autoplay=1&loop=1&playlist=UUe7hqH6C0c&mute=1&rel=0&modestbranding=1"
+              src="https://www.youtube.com/embed/UUe7hqH6C0c?autoplay=1&loop=1&playlist=UUe7hqH6C0c&rel=0&modestbranding=1"
               title="Kitabisa – Mari Berdonasi"
               allow="autoplay; encrypted-media; picture-in-picture"
               allowFullScreen
