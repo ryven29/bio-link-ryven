@@ -1,11 +1,12 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 
 export default function DonatePage() {
   const [glitchText, setGlitchText] = useState('DONASI');
   const [showInfo, setShowInfo] = useState(false);
   const [redirectCount, setRedirectCount] = useState(null);
+  const videoRef = useRef(null);
 
   // Glitch title effect
   useEffect(() => {
@@ -103,23 +104,19 @@ export default function DonatePage() {
             zIndex: 2
           }} />
 
-          {/* Aspect ratio wrapper 16:9 */}
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-            <iframe
-              src="https://www.youtube.com/embed/UUe7hqH6C0c?autoplay=1&loop=1&playlist=UUe7hqH6C0c&controls=0&modestbranding=1&rel=0&showinfo=0"
-              title="Kitabisa Ads"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              style={{
-                position: 'absolute',
-                top: 0, left: 0,
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                display: 'block'
-              }}
-            />
-          </div>
+          <video
+            ref={videoRef}
+            src="/kitabisa-ads.mp4"
+            autoPlay
+            loop
+            playsInline
+            preload="auto"
+            style={{
+              width: '100%',
+              display: 'block',
+              objectFit: 'cover'
+            }}
+          />
 
           {/* Scan-line overlay for cyberpunk feel */}
           <div style={{
