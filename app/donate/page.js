@@ -332,7 +332,7 @@ export default function DonatePage() {
                       Donasi via Kitabisa.com
                     </p>
                     <p style={{ fontSize: '12px', color: '#64748b' }}>
-                      Tap untuk lihat pesan & info sebelum donasi →
+                      Tap untuk info selengkapnya →
                     </p>
                   </div>
                 </button>
@@ -383,16 +383,16 @@ export default function DonatePage() {
                       fontSize: '14px', lineHeight: '1.9', color: '#cbd5e1',
                       fontStyle: 'italic', fontFamily: "'Georgia', serif"
                     }}>
-                      "Terimakasih yang ingin donasi ke saya untuk pengembangan web dan bot ini.
-                      Namun alangkah baiknya kita donasinya ke{' '}
+                      "Terimakasih yang ingin donasi untuk pengembangan web dan bot Glyphic.
+                      Namun, daripada berdonasi langsung kepada saya, alangkah baiknya jika dukungan tersebut disalurkan melalui{' '}
                       <span style={{ color: '#38bdf8', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
                         Kitabisa.com
                       </span>
-                      {' '}— platform penggalangan dana terpercaya Indonesia yang sudah menyalurkan lebih dari{' '}
-                      <span style={{ color: '#facc15', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
-                        Rp500 miliar
+                      . Dengan begitu, donasi kalian tidak hanya menjadi bentuk dukungan untuk saya dan pengembangan{' '}
+                      <span style={{ color: '#a78bfa', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
+                        Glyphic Bot
                       </span>
-                      {' '}kepada yang membutuhkan. Mari berbagi untuk sesama yang lebih memerlukan bantuan kita! 🙏"
+                      {' '}serta web ini, tetapi juga sekaligus membantu saudara-saudara kita yang lebih membutuhkan. 🙏"
                     </p>
                   </div>
                 </div>
