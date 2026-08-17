@@ -129,24 +129,6 @@ export default function DonatePage() {
             zIndex: 3
           }} />
 
-          {/* Info badge — klik video untuk suara */}
-          <div style={{
-            position: 'absolute',
-            bottom: '10px', left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 5,
-            background: 'rgba(0,0,0,0.7)',
-            backdropFilter: 'blur(8px)',
-            border: '1px solid rgba(255,255,255,0.1)',
-            borderRadius: '20px',
-            padding: '4px 12px',
-            fontSize: '11px',
-            color: '#94a3b8',
-            whiteSpace: 'nowrap',
-            pointerEvents: 'none'
-          }}>
-            🔇 Klik video untuk aktifkan suara
-          </div>
         </div>
 
         {/* ── KITABISA CARD ── */}
