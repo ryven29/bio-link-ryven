@@ -7,6 +7,7 @@ export default function DonatePage() {
   const [showInfo, setShowInfo] = useState(false);
   const [redirectCount, setRedirectCount] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [videoStatus, setVideoStatus] = useState('loading'); // 'loading' | 'ready' | 'error'
   const videoRef = useRef(null);
 
   const toggleMute = () => {
@@ -97,35 +98,77 @@ export default function DonatePage() {
           marginBottom: '32px',
           borderRadius: '20px',
           overflow: 'hidden',
-          border: '1px solid rgba(14, 165, 233, 0.4)',
+          border: `1px solid ${videoStatus === 'error' ? 'rgba(239,68,68,0.5)' : 'rgba(14, 165, 233, 0.4)'}`,
           boxShadow: '0 0 40px rgba(14, 165, 233, 0.15), 0 20px 60px rgba(0,0,0,0.6)',
-          position: 'relative'
+          position: 'relative',
+          minHeight: '200px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#020617'
         }}>
           {/* Glow top bar */}
           <div style={{
             position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
+            top: 0, left: 0, right: 0,
             height: '2px',
             background: 'linear-gradient(90deg, transparent, #0ea5e9, #a855f7, transparent)',
-            zIndex: 2
+            zIndex: 4
           }} />
+
+          {/* Loading state */}
+          {videoStatus === 'loading' && (
+            <div style={{
+              position: 'absolute', inset: 0, zIndex: 3,
+              display: 'flex', flexDirection: 'column',
+              alignItems: 'center', justifyContent: 'center', gap: '12px'
+            }}>
+              <div style={{
+                width: '36px', height: '36px', borderRadius: '50%',
+                border: '3px solid rgba(14,165,233,0.2)',
+                borderTopColor: '#0ea5e9',
+                animation: 'spin 0.8s linear infinite'
+              }} />
+              <p style={{ color: '#475569', fontSize: '12px' }}>Memuat video...</p>
+            </div>
+          )}
+
+          {/* Error state */}
+          {videoStatus === 'error' && (
+            <div style={{
+              position: 'absolute', inset: 0, zIndex: 3,
+              display: 'flex', flexDirection: 'column',
+              alignItems: 'center', justifyContent: 'center', gap: '8px',
+              padding: '20px', textAlign: 'center'
+            }}>
+              <span style={{ fontSize: '32px' }}>⚠️</span>
+              <p style={{ color: '#ef4444', fontSize: '13px', fontWeight: '600' }}>Video gagal dimuat</p>
+              <p style={{ color: '#475569', fontSize: '11px' }}>
+                Pastikan file ada di <code style={{ color: '#94a3b8' }}>public/kitabisa-ads.mp4</code><br />
+                dan dev server sudah di-restart
+              </p>
+            </div>
+          )}
 
           <video
             ref={videoRef}
-            src="/kitabisa-ads.mp4"
             autoPlay
             loop
             muted
             playsInline
             preload="auto"
+            onCanPlay={() => setVideoStatus('ready')}
+            onError={() => setVideoStatus('error')}
             style={{
               width: '100%',
               display: 'block',
-              objectFit: 'cover'
+              objectFit: 'cover',
+              opacity: videoStatus === 'ready' ? 1 : 0,
+              transition: 'opacity 0.4s ease'
             }}
-          />
+          >
+            <source src="/kitabisa-ads.mp4" type="video/mp4" />
+          </video>
 
           {/* Scan-line overlay */}
           <div style={{
@@ -133,7 +176,7 @@ export default function DonatePage() {
             inset: 0,
             background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px)',
             pointerEvents: 'none',
-            zIndex: 1
+            zIndex: 2
           }} />
 
           {/* Mute toggle button */}
@@ -363,6 +406,9 @@ export default function DonatePage() {
         @keyframes slideDown {
           from { opacity: 0; transform: translateY(-16px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </div>
