@@ -370,7 +370,7 @@ const TestimonialPage = () => {
                             Apa kata pelanggan kami?
                         </p>
                         <p className="text-sm max-w-xl mx-auto" style={{ color: "#6b7280" }}>
-                            Ribuan pelanggan telah mempercayakan kebutuhan digital mereka kepada kami.
+                            Siap menjadi pilihan terpercaya untuk memenuhi kebutuhan digital Anda.
                             Berikut adalah cerita nyata dari mereka.
                         </p>
                     </motion.div>
