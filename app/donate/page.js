@@ -173,7 +173,7 @@ export default function DonatePage() {
                   background: 'linear-gradient(to right, #0ea5e9, #a855f7)',
                   WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'
                 }}>Donasi via Kitabisa.com</p>
-                <p style={{ fontSize: '12px', color: '#64748b' }}>Tap untuk lihat pesan & info sebelum donasi →</p>
+                <p style={{ fontSize: '12px', color: '#64748b' }}>Tap untuk melihat info selengkapnya →</p>
               </div>
             </button>
           </div>
@@ -210,12 +210,12 @@ export default function DonatePage() {
                 fontSize: '14px', lineHeight: '1.9', color: '#cbd5e1',
                 fontStyle: 'italic', fontFamily: 'Georgia, serif'
               }}>
-                "Terimakasih yang ingin donasi ke saya untuk pengembangan web dan bot ini.
+                "Terimakasih yang ingin donasi untuk pengembangan web dan bot ini.
                 Namun alangkah baiknya kita donasinya ke{' '}
                 <span style={{ color: '#38bdf8', fontWeight: '700', fontStyle: 'normal' }}>Kitabisa.com</span>
                 {' '}— platform penggalangan dana terpercaya Indonesia yang sudah menyalurkan lebih dari{' '}
                 <span style={{ color: '#fbbf24', fontWeight: '700', fontStyle: 'normal' }}>Rp500 miliar</span>
-                {' '}kepada yang membutuhkan. Mari berbagi untuk sesama yang lebih memerlukan bantuan kita! 🙏"
+                {' '}kepada yang membutuhkan. Dengan begitu, donasi kalian tidak hanya menjadi bentuk dukungan untuk saya dan pengembangan bot serta web ini, tetapi juga sekaligus membantu saudara-saudara kita yang lebih membutuhkan."
               </p>
             </div>
 
