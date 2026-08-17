@@ -6,7 +6,15 @@ export default function DonatePage() {
   const [glitchText, setGlitchText] = useState('DONASI');
   const [showInfo, setShowInfo] = useState(false);
   const [redirectCount, setRedirectCount] = useState(null);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
 
   // Glitch title effect
   useEffect(() => {
@@ -109,6 +117,7 @@ export default function DonatePage() {
             src="/kitabisa-ads.mp4"
             autoPlay
             loop
+            muted
             playsInline
             preload="auto"
             style={{
@@ -118,7 +127,7 @@ export default function DonatePage() {
             }}
           />
 
-          {/* Scan-line overlay for cyberpunk feel */}
+          {/* Scan-line overlay */}
           <div style={{
             position: 'absolute',
             inset: 0,
@@ -126,6 +135,43 @@ export default function DonatePage() {
             pointerEvents: 'none',
             zIndex: 1
           }} />
+
+          {/* Mute toggle button */}
+          <button
+            onClick={toggleMute}
+            title={isMuted ? 'Aktifkan suara' : 'Matikan suara'}
+            style={{
+              position: 'absolute',
+              bottom: '12px',
+              right: '12px',
+              zIndex: 3,
+              width: '38px',
+              height: '38px',
+              borderRadius: '50%',
+              border: '1px solid rgba(255,255,255,0.25)',
+              background: 'rgba(0,0,0,0.55)',
+              backdropFilter: 'blur(8px)',
+              color: '#fff',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '16px',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'rgba(14,165,233,0.5)';
+              e.currentTarget.style.borderColor = '#0ea5e9';
+              e.currentTarget.style.transform = 'scale(1.1)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'rgba(0,0,0,0.55)';
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
+          >
+            {isMuted ? '🔇' : '🔊'}
+          </button>
         </div>
 
         {/* ── KITABISA CARD ── */}
