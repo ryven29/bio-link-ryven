@@ -1,21 +1,11 @@
 "use client"
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 
 export default function DonatePage() {
   const [glitchText, setGlitchText] = useState('DONASI');
   const [showInfo, setShowInfo] = useState(false);
   const [redirectCount, setRedirectCount] = useState(null);
-  const [isMuted, setIsMuted] = useState(true);
-  const [videoStatus, setVideoStatus] = useState('loading'); // 'loading' | 'ready' | 'error'
-  const videoRef = useRef(null);
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(videoRef.current.muted);
-    }
-  };
 
   // Glitch title effect
   useEffect(() => {
@@ -98,15 +88,12 @@ export default function DonatePage() {
           marginBottom: '32px',
           borderRadius: '20px',
           overflow: 'hidden',
-          border: `1px solid ${videoStatus === 'error' ? 'rgba(239,68,68,0.5)' : 'rgba(14, 165, 233, 0.4)'}`,
+          border: '1px solid rgba(14, 165, 233, 0.4)',
           boxShadow: '0 0 40px rgba(14, 165, 233, 0.15), 0 20px 60px rgba(0,0,0,0.6)',
           position: 'relative',
-          minHeight: '200px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           backgroundColor: '#020617'
         }}>
+          {/* Glow top bar */}
           {/* Glow top bar */}
           <div style={{
             position: 'absolute',
@@ -116,105 +103,50 @@ export default function DonatePage() {
             zIndex: 4
           }} />
 
-          {/* Loading state */}
-          {videoStatus === 'loading' && (
-            <div style={{
-              position: 'absolute', inset: 0, zIndex: 3,
-              display: 'flex', flexDirection: 'column',
-              alignItems: 'center', justifyContent: 'center', gap: '12px'
-            }}>
-              <div style={{
-                width: '36px', height: '36px', borderRadius: '50%',
-                border: '3px solid rgba(14,165,233,0.2)',
-                borderTopColor: '#0ea5e9',
-                animation: 'spin 0.8s linear infinite'
-              }} />
-              <p style={{ color: '#475569', fontSize: '12px' }}>Memuat video...</p>
-            </div>
-          )}
-
-          {/* Error state */}
-          {videoStatus === 'error' && (
-            <div style={{
-              position: 'absolute', inset: 0, zIndex: 3,
-              display: 'flex', flexDirection: 'column',
-              alignItems: 'center', justifyContent: 'center', gap: '8px',
-              padding: '20px', textAlign: 'center'
-            }}>
-              <span style={{ fontSize: '32px' }}>⚠️</span>
-              <p style={{ color: '#ef4444', fontSize: '13px', fontWeight: '600' }}>Video gagal dimuat</p>
-              <p style={{ color: '#475569', fontSize: '11px' }}>
-                Pastikan file ada di <code style={{ color: '#94a3b8' }}>public/kitabisa-ads.mp4</code><br />
-                dan dev server sudah di-restart
-              </p>
-            </div>
-          )}
-
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            onCanPlay={() => setVideoStatus('ready')}
-            onError={() => setVideoStatus('error')}
-            style={{
-              width: '100%',
-              display: 'block',
-              objectFit: 'cover',
-              opacity: videoStatus === 'ready' ? 1 : 0,
-              transition: 'opacity 0.4s ease'
-            }}
-          >
-            <source src="/kitabisa-ads.mp4" type="video/mp4" />
-          </video>
+          {/* YouTube 16:9 wrapper */}
+          <div style={{ position: 'relative', paddingBottom: '56.25%', width: '100%', height: 0 }}>
+            <iframe
+              src="https://www.youtube.com/embed/UUe7hqH6C0c?autoplay=1&loop=1&playlist=UUe7hqH6C0c&mute=1&rel=0&modestbranding=1"
+              title="Kitabisa – Mari Berdonasi"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                top: 0, left: 0,
+                width: '100%', height: '100%',
+                border: 'none',
+                display: 'block'
+              }}
+            />
+          </div>
 
           {/* Scan-line overlay */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px)',
+            background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px)',
             pointerEvents: 'none',
-            zIndex: 2
+            zIndex: 3
           }} />
 
-          {/* Mute toggle button */}
-          <button
-            onClick={toggleMute}
-            title={isMuted ? 'Aktifkan suara' : 'Matikan suara'}
-            style={{
-              position: 'absolute',
-              bottom: '12px',
-              right: '12px',
-              zIndex: 3,
-              width: '38px',
-              height: '38px',
-              borderRadius: '50%',
-              border: '1px solid rgba(255,255,255,0.25)',
-              background: 'rgba(0,0,0,0.55)',
-              backdropFilter: 'blur(8px)',
-              color: '#fff',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '16px',
-              transition: 'all 0.2s ease'
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = 'rgba(14,165,233,0.5)';
-              e.currentTarget.style.borderColor = '#0ea5e9';
-              e.currentTarget.style.transform = 'scale(1.1)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = 'rgba(0,0,0,0.55)';
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
-              e.currentTarget.style.transform = 'scale(1)';
-            }}
-          >
-            {isMuted ? '🔇' : '🔊'}
-          </button>
+          {/* Info badge — klik video untuk suara */}
+          <div style={{
+            position: 'absolute',
+            bottom: '10px', left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 5,
+            background: 'rgba(0,0,0,0.7)',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: '20px',
+            padding: '4px 12px',
+            fontSize: '11px',
+            color: '#94a3b8',
+            whiteSpace: 'nowrap',
+            pointerEvents: 'none'
+          }}>
+            🔇 Klik video untuk aktifkan suara
+          </div>
         </div>
 
         {/* ── KITABISA CARD ── */}
