@@ -19,7 +19,7 @@ const Profile = () => {
                         alt="Profile"
                         className="w-20 h-20 rounded-full border-2 border-gray-500 bg-gray-600 transition-transform hover:scale-105"
                         onError={() =>
-                            setImgSrc("https://files.catbox.moe/tmobkc.png")
+                            setImgSrc("https://files.catbox.moe/0qlw1x.jpg")
                         }/>
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full animate-pulse"></div>
                 </div>
@@ -66,7 +66,7 @@ const Profile = () => {
                         <FaDiscord className="h-5 w-5 text-gray-200"/>
                     </a>
                     <a
-                        href="https://github.com/ryven29"
+                        href="https://github.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-zinc-400 hover:text-zinc-100 transition-colors">
