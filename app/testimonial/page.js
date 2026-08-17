@@ -257,6 +257,30 @@ const TestimonialPage = () => {
     const [currentImageSrc, setCurrentImageSrc] = useState("")
     const [currentImageAlt, setCurrentImageAlt] = useState("")
 
+    // ── No Inspect Protection ──
+    useEffect(() => {
+        const handleContextMenu = (e) => {
+            e.preventDefault()
+            alert("inspect this page is not allowed :)\nRyven")
+        }
+        const handleKeyDown = (e) => {
+            if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+                (e.ctrlKey && e.key === "U")
+            ) {
+                e.preventDefault()
+                alert("inspect this page is not allowed :)\nRyven")
+            }
+        }
+        document.addEventListener("contextmenu", handleContextMenu)
+        document.addEventListener("keydown", handleKeyDown)
+        return () => {
+            document.removeEventListener("contextmenu", handleContextMenu)
+            document.removeEventListener("keydown", handleKeyDown)
+        }
+    }, [])
+
     const handleImageClick = (src, alt) => {
         setCurrentImageSrc(src)
         setCurrentImageAlt(alt)
