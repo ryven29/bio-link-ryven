@@ -76,6 +76,30 @@ export default function DonatePage() {
     return () => clearInterval(id);
   }, []);
 
+  // ── No Inspect Protection ──
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      e.preventDefault()
+      alert('inspect this page is not allowed :)\nRyven')
+    }
+    const handleKeyDown = (e) => {
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) ||
+        (e.ctrlKey && e.key === 'U')
+      ) {
+        e.preventDefault()
+        alert('inspect this page is not allowed :)\nRyven')
+      }
+    }
+    document.addEventListener('contextmenu', handleContextMenu)
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, []);
+
   const handleRedirect = () => {
     let count = 3;
     setRedirectCount(count);
@@ -332,7 +356,7 @@ export default function DonatePage() {
                       Donasi via Kitabisa.com
                     </p>
                     <p style={{ fontSize: '12px', color: '#64748b' }}>
-                      Tap untuk info selengkapnya →
+                      Tap untuk lihat pesan & info sebelum donasi →
                     </p>
                   </div>
                 </button>
@@ -383,8 +407,7 @@ export default function DonatePage() {
                       fontSize: '14px', lineHeight: '1.9', color: '#cbd5e1',
                       fontStyle: 'italic', fontFamily: "'Georgia', serif"
                     }}>
-                      "Terimakasih yang ingin donasi untuk pengembangan web dan bot Glyphic.
-                      Namun, daripada berdonasi langsung kepada saya, alangkah baiknya jika dukungan tersebut disalurkan melalui{' '}
+                      "Namun, daripada berdonasi langsung kepada saya, alangkah baiknya jika dukungan tersebut disalurkan melalui{' '}
                       <span style={{ color: '#38bdf8', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
                         Kitabisa.com
                       </span>
