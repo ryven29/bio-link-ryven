@@ -106,7 +106,7 @@ export default function DonatePage() {
 
           <video
             ref={videoRef}
-            src="/kitabisa-ads.mp4"
+            src="/video/kitabisa-ads.mp4"
             autoPlay
             loop
             muted
