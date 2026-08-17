@@ -356,7 +356,7 @@ export default function DonatePage() {
                       Donasi via Kitabisa.com
                     </p>
                     <p style={{ fontSize: '12px', color: '#64748b' }}>
-                      Tap untuk lihat pesan & info sebelum donasi →
+                      Tap untuk lihat info selengkapnya →
                     </p>
                   </div>
                 </button>
@@ -407,7 +407,8 @@ export default function DonatePage() {
                       fontSize: '14px', lineHeight: '1.9', color: '#cbd5e1',
                       fontStyle: 'italic', fontFamily: "'Georgia', serif"
                     }}>
-                      "Namun, daripada berdonasi langsung kepada saya, alangkah baiknya jika dukungan tersebut disalurkan melalui{' '}
+                      "Terimakasih yang ingin donasi untuk pengembangan web dan bot Glyphic.
+                      Namun, daripada berdonasi langsung kepada saya, alangkah baiknya jika dukungan tersebut disalurkan melalui{' '}
                       <span style={{ color: '#38bdf8', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
                         Kitabisa.com
                       </span>
