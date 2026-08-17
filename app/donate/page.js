@@ -106,7 +106,7 @@ export default function DonatePage() {
           {/* Aspect ratio wrapper 16:9 */}
           <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
             <iframe
-              src="https://www.youtube.com/embed/UUe7hqH6C0c?autoplay=1&loop=1&playlist=UUe7hqH6C0c&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0"
+              src="https://www.youtube.com/embed/UUe7hqH6C0c?autoplay=1&loop=1&playlist=UUe7hqH6C0c&controls=0&modestbranding=1&rel=0&showinfo=0"
               title="Kitabisa Ads"
               allow="autoplay; encrypted-media"
               allowFullScreen
