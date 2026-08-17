@@ -269,16 +269,16 @@ const TestimonialPage = () => {
     }
 
     const testimonials = [
-        { id: 1, image: "https://c.top4top.io/p_3506prg6k1.jpg", productName: "Jasa Claim Nitro Trial", price: "Rp 5.000", rating: 5, description: "Claim Nitro Trial berhasil! Proses cepat dan aman. Recommended banget buat yang mau claim Nitro.", customerName: "Daztan" },
-        { id: 2, image: "https://d.top4top.io/p_3506c5zjg2.jpg", productName: "Jasa Claim Nitro Trial", price: "Rp 5.000", rating: 5, description: "Claim Nitro Trial berhasil dengan cepat. Admin ramah dan responsive. Terima kasih RYVEN STORE!", customerName: "Sentod" },
-        { id: 3, image: "https://e.top4top.io/p_3506l56gw3.jpg", productName: "Joki Quest Discord", price: "Rp 5.000", rating: 5, description: "Joki Quest Discord berhasil dikirim. Proses joki lancar dan harga bersaing.", customerName: "Galih" },
-        { id: 4, image: "https://f.top4top.io/p_3506vcfop4.jpg", productName: "Akun Telegram Old", price: "Rp 100.000", rating: 5, description: "Akun Telegram Old berhasil! Admin sangat membantu dan prosesnya cepat sekali.", customerName: "Fawaz" },
-        { id: 5, image: "https://g.top4top.io/p_35067ihh65.jpg", productName: "Joki Quest Discord", price: "Rp 5.000", rating: 5, description: "Joki Quest Discord berhasil dikirim dengan cepat. Harga murah dan terpercaya!", customerName: "Vinzz" },
-        { id: 6, image: "https://h.top4top.io/p_350653ezy6.jpg", productName: "Xbox Gamepass 1 Month", price: "Rp 10.000", rating: 5, description: "Xbox Gamepass berhasil. Admin ramah dan prosesnya tidak ribet.", customerName: "Gamero" },
-        { id: 7, image: "https://i.top4top.io/p_350631men7.jpg", productName: "YT Premium 1 Month Invite", price: "Rp 2.000", rating: 5, description: "YT Premium Invite berhasil dikirim. Proses invite sangat cepat dan aman.", customerName: "Fawaz" },
-        { id: 8, image: "https://c.top4top.io/p_3526prweb1.png", productName: "2x Akun Discord Old", price: "Rp 8.000", rating: 5, description: "Akun Discord berkualitas dan aman, sangat direkomendasikan.", customerName: "Marcel" },
-        { id: 9, image: "https://g.top4top.io/p_3526w28if1.png", productName: "1x Akun Discord Old", price: "Rp 3.000", rating: 5, description: "Akun Discord berkualitas dan aman, sangat direkomendasikan.", customerName: "Furukawa Yudi" },
-        { id: 10, image: "https://e.top4top.io/p_3526x1cl31.png", productName: "8x Akun Discord Old", price: "Rp 28.000", rating: 5, description: "Akun Discord berkualitas dan aman, sangat direkomendasikan.", customerName: "Furukawa Yudi" },
+        { id: 1, image: "https://j.top4top.io/p_388199a4k1.jpg", productName: "Jasa Claim Nitro Trial", price: "Rp 5.000", rating: 5, description: "No Caption.", customerName: "Daztan" },
+        { id: 2, image: "https://k.top4top.io/p_3881jipfn2.jpg", productName: "Jasa Claim Nitro Trial", price: "Rp 5.000", rating: 5, description: "No Caption.", customerName: "Senna" },
+        { id: 3, image: "https://e.top4top.io/p_3506l56gw3.jpg", productName: "Joki Quest Discord", price: "Rp 5.000", rating: 5, description: "No Caption.", customerName: "Galih" },
+        { id: 4, image: "https://f.top4top.io/p_3506vcfop4.jpg", productName: "Akun Telegram Old", price: "Rp 100.000", rating: 5, description: "No Caption.", customerName: "Fawaz" },
+        { id: 5, image: "https://g.top4top.io/p_35067ihh65.jpg", productName: "Joki Quest Discord", price: "Rp 5.000", rating: 5, description: "No Caption.", customerName: "Vinzz" },
+        { id: 6, image: "https://l.top4top.io/p_3881iqbj83.jpg", productName: "Xbox Gamepass 1 Month", price: "Rp 10.000", rating: 5, description: "No Caption.", customerName: "Gamero" },
+        { id: 7, image: "https://i.top4top.io/p_350631men7.jpg", productName: "YT Premium 1 Month Invite", price: "Rp 2.000", rating: 5, description: "No Caption.", customerName: "Fawaz" },
+        { id: 8, image: "https://c.top4top.io/p_3526prweb1.png", productName: "2x Akun Discord Old", price: "Rp 8.000", rating: 5, description: "No Caption.", customerName: "Marcel" },
+        { id: 9, image: "https://g.top4top.io/p_3526w28if1.png", productName: "1x Akun Discord Old", price: "Rp 3.000", rating: 5, description: "No Caption.", customerName: "Furukawa Yudi" },
+        { id: 10, image: "https://e.top4top.io/p_3526x1cl31.png", productName: "8x Akun Discord Old", price: "Rp 28.000", rating: 5, description: "No Caption.", customerName: "Furukawa Yudi" },
     ]
 
     const avgRating = Math.round((testimonials.reduce((s, t) => s + t.rating, 0) / testimonials.length) * 10) / 10
@@ -416,11 +416,7 @@ const TestimonialPage = () => {
                             border: "1px solid rgba(255,255,255,0.06)",
                         }}
                     >
-                        <span style={{ color: "#6b7280" }}>📊 </span>
-                        <span style={{ color: "#facc15", fontWeight: 600 }}>Real-time: </span>
-                        <span style={{ color: "#9ca3af" }}>
-                            {testimonials.length} testimoni · rata-rata {avgRating}/5.0 · {satisfaction}% pelanggan sangat puas
-                        </span>
+                        <span style={{ color: "#6b7280" }}>Kami tidak pernah meragukan pelanggan meskipum permintaan aneh-aneh </span>
                     </motion.div>
                 </section>
 
