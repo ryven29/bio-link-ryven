@@ -440,7 +440,7 @@ const TestimonialPage = () => {
                             border: "1px solid rgba(255,255,255,0.06)",
                         }}
                     >
-                        <span style={{ color: "#6b7280" }}>Kami tidak pernah meragukan pelanggan meskipum permintaan aneh-aneh </span>
+                        <span style={{ color: "#6b7280" }}>Kami tidak pernah meragukan pelanggan meskipun permintaan aneh-aneh </span>
                     </motion.div>
                 </section>
 
@@ -483,10 +483,10 @@ const TestimonialPage = () => {
                             <FaBolt style={{ color: "#facc15", fontSize: "22px" }} />
                         </div>
                         <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                            Mau Order Sekarang?
+                            Contact Us
                         </h3>
                         <p className="text-sm mb-6" style={{ color: "#9ca3af" }}>
-                            Hubungi kami melalui platform pilihan kamu. Respon cepat dijamin!
+                            Produk lainnya silahkan hubungi kontak dibawah ini
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -534,11 +534,11 @@ const TestimonialPage = () => {
                         >
                             <p style={{ color: "#9ca3af" }}>
                                 <span style={{ color: "#facc15", fontWeight: 600 }}>⏰ Jam Operasional:</span>{" "}
-                                Senin – Minggu, 08:00 – 22:00 WIB
+                                Setiap hari, Menyesuaikan Ketersediaan Waktu
                             </p>
                             <p className="mt-1" style={{ color: "#9ca3af" }}>
                                 <span style={{ color: "#4ade80", fontWeight: 600 }}>⚡ Respon Cepat:</span>{" "}
-                                Biasanya dalam 5–15 menit
+                                Saat Waktu Luang
                             </p>
                         </div>
                     </motion.div>
