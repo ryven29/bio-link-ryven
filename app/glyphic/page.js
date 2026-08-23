@@ -171,11 +171,10 @@ export default function GlyphicPage() {
                                 Apa itu Glyphic?
                             </h2>
                             <p className="text-gray-300 leading-relaxed mb-4">
-                                Glyphic adalah sebuah bot WhatsApp cerdas yang dirancang untuk membantu mengotomatisasi berbagai tugas, memberikan informasi secara real-time, dan meningkatkan pengalaman interaksi pengguna di platform WhatsApp.
+                                Glyphic adalah sebuah Bot Whatsapp yang bisa membantu kamu seperti menemukan informasi, Download Video/Audio dari semua sosmed, Games, Group Security, dan lain sebagainya
                             </p>
                             <p className="text-gray-300 leading-relaxed">
-                                Dilengkapi dengan fitur-fitur canggih dan antarmuka yang responsif, Glyphic hadir sebagai asisten virtual yang dapat diandalkan untuk kebutuhan personal maupun komunitas. Nantikan kehadirannya segera!
-                            </p>
+                                Info lebih lanjut?, Tunggu bot hadir kembali.
                         </motion.div>
                     </motion.div>
                 </main>
