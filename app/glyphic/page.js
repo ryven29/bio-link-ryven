@@ -175,6 +175,7 @@ export default function GlyphicPage() {
                             </p>
                             <p className="text-gray-300 leading-relaxed">
                                 Info lebih lanjut?, Tunggu bot hadir kembali.
+                            </p>
                         </motion.div>
                     </motion.div>
                 </main>
