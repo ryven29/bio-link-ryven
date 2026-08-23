@@ -23,7 +23,7 @@ export default function NotFound() {
           <div
             className="shrink-0 bg-divider border-none h-10 w-divider"
             role="separator"></div>
-          <a href="https://ryven-xz.vercel.app" className="text-green-500 icon">
+          <a href="https://ryvenz.my.id" className="text-green-500 icon">
             <i className="fa-solid fa-arrow-right text-gray-600 text-1xl md:text-1xl"></i>
           </a>
         </div>
