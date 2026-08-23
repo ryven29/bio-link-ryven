@@ -18,13 +18,13 @@ const links = [
     {
         title: "WhatsApp Channels",
         description: "Coming Soon!",
-        url: "https://whatsapp.com/",
+        url: "/404",
         icon: <HiOutlineChat className="w-6 h-6 text-gray-200" />,
     },
     {
         title: "Discord Server",
         description: "Coming Soon!",
-        url: "https://discord.gg/",
+        url: "/404",
         icon: <IoLogoDiscord className="w-6 h-6 text-gray-200" />,
     },
     {
