@@ -7,6 +7,7 @@ import Links from "./components/Links"
 import Loading from "./components/Loader"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import MusicPlayer from "./components/MusicPlayer"
 
 export default function Home() {
   const [loadingComplete, setLoadingComplete] = useState(false)
@@ -30,10 +31,11 @@ export default function Home() {
             <Loading onLoadComplete={() => setLoadingComplete(true)} />
           ) : (
             <>
-              <Header/>
-              <Profile/>
-              <Links/>
-              <Footer/>
+              <Header />
+              <Profile />
+              <Links />
+              <Footer />
+              <MusicPlayer />
             </>
           )
         }
