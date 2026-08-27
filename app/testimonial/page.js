@@ -399,7 +399,6 @@ const TestimonialPage = () => {
                         <StatCard
                             value={`${testimonials.length}+`}
                             label="Testimoni Positif"
-                            sub="Semua hasil nyata"
                             icon={FaHeart}
                             color="#f97316"
                             delay={0.1}
@@ -407,7 +406,6 @@ const TestimonialPage = () => {
                         <StatCard
                             value={avgRating}
                             label="Rating Rata-rata"
-                            sub="Dari skala 5.0"
                             icon={FaStar}
                             color="#facc15"
                             delay={0.2}
@@ -415,7 +413,6 @@ const TestimonialPage = () => {
                         <StatCard
                             value={`${satisfaction}%`}
                             label="Kepuasan Pelanggan"
-                            sub="Rating 4+ bintang"
                             icon={FaShieldAlt}
                             color="#4ade80"
                             delay={0.3}
