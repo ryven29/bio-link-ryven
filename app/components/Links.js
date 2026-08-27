@@ -12,7 +12,7 @@ const links = [
     {
         title: "Glyphic",
         description: "The Bot currently inactive.",
-        url: "/glyphic",
+        url: "/404",
         icon: <LuBotMessageSquare className="w-6 h-6 text-gray-200" />,
     },
     {
