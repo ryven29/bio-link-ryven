@@ -105,16 +105,16 @@ export default function DonatePage() {
         body { font-family: 'Space Grotesk', sans-serif; }
 
         .donate-hero-glow {
-          background: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(59,130,246,0.12), transparent);
+          background: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(250,204,21,0.12), transparent);
         }
 
-        /* ── Shimmer title: blue → purple, sesuai tema loading bar ── */
+        /* ── Shimmer title: yellow → orange → pink, sesuai testimoni ── */
         @keyframes shimmer {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
         .gradient-text-donate {
-          background: linear-gradient(90deg, #3b82f6, #9333ea, #facc15, #3b82f6);
+          background: linear-gradient(90deg, #facc15, #f97316, #ec4899, #facc15);
           background-size: 200% auto;
           -webkit-background-clip: text;
           background-clip: text;
@@ -129,26 +129,28 @@ export default function DonatePage() {
         .slide-down { animation: slideDown 0.35s ease; }
 
         @keyframes pulse-ring {
-          0%   { transform: scale(1); opacity: 0.6; }
-          100% { transform: scale(1.6); opacity: 0; }
+          0%   { transform: scale(1);   opacity: 0.7; }
+          100% { transform: scale(1.5); opacity: 0; }
         }
-        .pulse-ring::after {
-          content: '';
+        /* pulse ring mengikuti border-radius kotak emoji, z-index di belakang */
+        .pulse-ring-box {
           position: absolute;
-          inset: 0;
-          border-radius: 50%;
-          border: 2px solid #3b82f6;
+          inset: -5px;
+          border-radius: 18px;
+          border: 2px solid #facc15;
           animation: pulse-ring 2s ease-out infinite;
+          z-index: 0;
+          pointer-events: none;
         }
 
-        /* ── Primary button: blue→purple gradient ── */
+        /* ── Primary button: yellow→orange gradient sesuai tema utama ── */
         .donate-btn-primary {
           width: 100%;
           padding: 15px;
-          background: linear-gradient(135deg, #3b82f6, #9333ea);
+          background: linear-gradient(135deg, #facc15, #f97316);
           border: none;
           border-radius: 14px;
-          color: #fff;
+          color: #000;
           font-weight: 700;
           font-size: 15px;
           font-family: 'Space Grotesk', sans-serif;
@@ -168,22 +170,23 @@ export default function DonatePage() {
         }
         .donate-btn-primary:hover::before { left: 100%; }
         .donate-btn-primary:hover {
-          box-shadow: 0 0 30px rgba(59,130,246,0.45);
+          box-shadow: 0 0 30px rgba(250,204,21,0.4);
           transform: translateY(-2px);
         }
         .donate-btn-primary:disabled {
-          background: rgba(59,130,246,0.2);
+          background: rgba(250,204,21,0.2);
+          color: #fff;
           cursor: not-allowed;
           transform: none;
           box-shadow: none;
         }
 
-        /* ── Teaser card ── */
+        /* ── Teaser card — yellow/orange sesuai tema halaman utama ── */
         .teaser-card {
           width: 100%;
           padding: 18px 24px;
-          background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(147,51,234,0.1));
-          border: 1px solid rgba(59,130,246,0.35);
+          background: linear-gradient(135deg, rgba(250,204,21,0.07), rgba(249,115,22,0.07));
+          border: 1px solid rgba(250,204,21,0.3);
           border-radius: 18px;
           color: #fff;
           cursor: pointer;
@@ -201,13 +204,13 @@ export default function DonatePage() {
           position: absolute;
           top: 0; left: -100%;
           width: 100%; height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+          background: linear-gradient(90deg, transparent, rgba(250,204,21,0.06), transparent);
           transition: left 0.5s ease;
         }
         .teaser-card:hover::before { left: 100%; }
         .teaser-card:hover {
-          border-color: rgba(59,130,246,0.6);
-          box-shadow: 0 0 28px rgba(59,130,246,0.2);
+          border-color: rgba(250,204,21,0.55);
+          box-shadow: 0 0 28px rgba(250,204,21,0.15);
           transform: translateY(-2px);
         }
 
@@ -229,11 +232,11 @@ export default function DonatePage() {
         }
         .stats-ticker-wrapper::before {
           left: 0;
-          background: linear-gradient(to right, #0f172a, transparent);
+          background: linear-gradient(to right, #0a0a0a, transparent);
         }
         .stats-ticker-wrapper::after {
           right: 0;
-          background: linear-gradient(to left, #0f172a, transparent);
+          background: linear-gradient(to left, #0a0a0a, transparent);
         }
 
         @keyframes marquee {
@@ -285,16 +288,16 @@ export default function DonatePage() {
         }
       `}</style>
 
-      <div className="min-h-screen text-white grid-bg" style={{ background: '#0f172a', fontFamily: "'Space Grotesk', sans-serif" }}>
+      <div className="min-h-screen text-white grid-bg" style={{ background: '#0a0a0a', fontFamily: "'Space Grotesk', sans-serif" }}>
         <Header />
 
         {/* ── Hero Section ── */}
         <section className="relative pt-28 pb-6 px-4 overflow-hidden donate-hero-glow">
-          {/* Decorative blobs — blue & purple sesuai tema */}
+          {/* Decorative blobs — yellow & orange sesuai tema testimonial */}
           <div className="absolute top-16 left-1/4 w-64 h-64 rounded-full opacity-5 blur-3xl pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #3b82f6, transparent)' }} />
+            style={{ background: 'radial-gradient(circle, #facc15, transparent)' }} />
           <div className="absolute top-20 right-1/4 w-48 h-48 rounded-full opacity-5 blur-3xl pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #9333ea, transparent)' }} />
+            style={{ background: 'radial-gradient(circle, #ec4899, transparent)' }} />
 
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -309,9 +312,9 @@ export default function DonatePage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-6"
               style={{
-                background: 'rgba(59,130,246,0.08)',
-                border: '1px solid rgba(59,130,246,0.25)',
-                color: '#93c5fd',   // blue-300
+                background: 'rgba(250,204,21,0.08)',
+                border: '1px solid rgba(250,204,21,0.25)',
+                color: '#facc15',
               }}
             >
               <FaHeart style={{ fontSize: '11px' }} />
@@ -342,16 +345,16 @@ export default function DonatePage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="w-full mb-4 rounded-2xl overflow-hidden"
             style={{
-              border: '1px solid rgba(59,130,246,0.3)',
-              boxShadow: '0 0 40px rgba(59,130,246,0.1), 0 20px 60px rgba(0,0,0,0.5)',
-              background: '#0f172a',
+              border: '1px solid rgba(250,204,21,0.2)',
+              boxShadow: '0 0 40px rgba(250,204,21,0.07), 0 20px 60px rgba(0,0,0,0.5)',
+              background: '#0a0a0a',
               position: 'relative',
             }}
           >
-            {/* Glow top bar — blue→purple */}
+            {/* Glow top bar — yellow→orange */}
             <div style={{
               position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-              background: 'linear-gradient(90deg, transparent, #3b82f6, #9333ea, transparent)',
+              background: 'linear-gradient(90deg, transparent, #facc15, #f97316, transparent)',
               zIndex: 4
             }} />
             {/* 16:9 YouTube embed */}
@@ -402,25 +405,29 @@ export default function DonatePage() {
                 transition={{ duration: 0.3 }}
               >
                 <button className="teaser-card" onClick={() => setShowInfo(true)}>
-                  <div className="relative" style={{ flexShrink: 0 }}>
+                  {/* Emoji box wrapper — pulse ring di belakang (z-index 0), emoji container z-index 1 */}
+                  <div style={{ position: 'relative', flexShrink: 0, width: '52px', height: '52px' }}>
+                    {/* Pulse ring — rounded-rect mengikuti border emoji box */}
+                    <div className="pulse-ring-box" />
+                    {/* Emoji container — di depan ring */}
                     <div
-                      className="pulse-ring"
                       style={{
-                        width: '52px', height: '52px', borderRadius: '14px', position: 'relative',
-                        background: 'linear-gradient(135deg, #3b82f6, #9333ea)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px'
+                        width: '52px', height: '52px', borderRadius: '14px',
+                        background: 'linear-gradient(135deg, #facc15, #f97316)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: '24px', position: 'relative', zIndex: 1,
                       }}
                     >🤝</div>
                   </div>
                   <div>
                     <p style={{
                       fontWeight: '700', fontSize: '16px', marginBottom: '4px',
-                      background: 'linear-gradient(to right, #93c5fd, #c4b5fd)',
+                      background: 'linear-gradient(to right, #facc15, #f97316)',
                       WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'
                     }}>
                       Donasi via Kitabisa.com
                     </p>
-                    <p style={{ fontSize: '12px', color: '#475569' }}>
+                    <p style={{ fontSize: '12px', color: '#6b7280' }}>
                       Tap untuk lihat pesan & info sebelum donasi →
                     </p>
                   </div>
@@ -435,26 +442,26 @@ export default function DonatePage() {
                 transition={{ duration: 0.35 }}
                 className="w-full rounded-2xl overflow-hidden"
                 style={{
-                  background: 'rgba(15,23,42,0.97)',
-                  border: '1px solid rgba(59,130,246,0.3)',
+                  background: 'rgba(10,10,10,0.97)',
+                  border: '1px solid rgba(250,204,21,0.2)',
                   backdropFilter: 'blur(20px)',
                 }}
               >
                 {/* Card Header */}
                 <div style={{
                   padding: '20px 24px',
-                  background: 'linear-gradient(135deg, rgba(59,130,246,0.12), rgba(147,51,234,0.12))',
+                  background: 'linear-gradient(135deg, rgba(250,204,21,0.1), rgba(249,115,22,0.1))',
                   borderBottom: '1px solid rgba(255,255,255,0.06)',
                   display: 'flex', alignItems: 'center', gap: '12px',
                 }}>
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ background: 'rgba(59,130,246,0.15)', border: '1px solid rgba(59,130,246,0.3)' }}>
-                    <FaHandHoldingHeart style={{ color: '#93c5fd', fontSize: '18px' }} />
+                    style={{ background: 'rgba(250,204,21,0.12)', border: '1px solid rgba(250,204,21,0.25)' }}>
+                    <FaHandHoldingHeart style={{ color: '#facc15', fontSize: '18px' }} />
                   </div>
                   <div>
                     <p style={{
                       fontWeight: '700', fontSize: '16px',
-                      background: 'linear-gradient(to right, #93c5fd, #c4b5fd)',
+                      background: 'linear-gradient(to right, #facc15, #f97316)',
                       WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                       fontFamily: "'Space Grotesk', sans-serif",
                     }}>
@@ -466,13 +473,13 @@ export default function DonatePage() {
 
                 {/* Personal Message */}
                 <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div className="rounded-xl p-4" style={{ background: 'rgba(59,130,246,0.04)', border: '1px solid rgba(59,130,246,0.12)' }}>
+                  <div className="rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}>
                     <p style={{
                       fontSize: '14px', lineHeight: '1.9', color: '#cbd5e1',
                       fontStyle: 'italic', fontFamily: "'Georgia', serif"
                     }}>
                       "Halo! Jika kamu ingin berdonasi lebih — di luar premium bot atau sewa bot — mending salurkan lewat{' '}
-                      <span style={{ color: '#93c5fd', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
+                      <span style={{ color: '#facc15', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
                         Kitabisa.com
                       </span>
                       {' '}aja. Donasimu akan jauh lebih berdampak karena turut membantu saudara-saudara kita yang lebih membutuhkan di seluruh Indonesia. Selain itu, donasi kamu juga membantu keberlangsungan pengembangan{' '}
@@ -506,7 +513,7 @@ export default function DonatePage() {
                     <span style={{ color: '#94a3b8' }}>Prof. Rhenald Kasali</span>
                     {' '}(Guru Besar FEB-UI) dan{' '}
                     <span style={{ color: '#94a3b8' }}>Aldi Haryopratomo</span>
-                    {' '}(founding CEO GoPay). Beroperasi di <span style={{ color: '#93c5fd' }}>34 provinsi</span> Indonesia.
+                    {' '}(founding CEO GoPay). Beroperasi di <span style={{ color: '#facc15' }}>34 provinsi</span> Indonesia.
                   </p>
                 </div>
 
