@@ -45,14 +45,14 @@ const Profile = () => {
                 </div>
                 <div className="flex justify-center gap-4 mt-4 text-xl text-gray-400">
                     <a
-                        href="https://wa.me/628991103457"
+                        href="https://wa.me/6285166621749"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-zinc-400 hover:text-zinc-100 transition-colors">
                         <FaWhatsapp className="h-5 w-5 text-gray-200" />
                     </a>
                     <a
-                        href="https://instagram.com/fikrinrirham"
+                        href="https://instagram.com/fikrinrirham_"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-zinc-400 hover:text-zinc-100 transition-colors">
@@ -66,7 +66,7 @@ const Profile = () => {
                         <FaDiscord className="h-5 w-5 text-gray-200" />
                     </a>
                     <a
-                        href="https://github.com/ryven29"
+                        href="https://github.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-zinc-400 hover:text-zinc-100 transition-colors">
