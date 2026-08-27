@@ -462,21 +462,22 @@ export default function DonatePage() {
                 </div>
 
                 {/* Personal Message */}
+                {/* Personal Message */}
                 <div style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                   <div className="rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
                     <p style={{
                       fontSize: '14px', lineHeight: '1.9', color: '#cbd5e1',
                       fontStyle: 'italic', fontFamily: "'Georgia', serif"
                     }}>
-                      "Namun, daripada berdonasi langsung kepada saya, alangkah baiknya jika dukungan tersebut disalurkan melalui{' '}
+                      "Halo! Jika kamu ingin berdonasi lebih di luar premium bot atau sewa bot, lebih baik salurkan lewat{' '}
                       <span style={{ color: '#38bdf8', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
                         Kitabisa.com
                       </span>
-                      . Dengan begitu, donasi kalian tidak hanya menjadi bentuk dukungan untuk saya dan pengembangan{' '}
+                      {' '}aja. Donasimu akan jauh lebih berdampak karena turut membantu saudara-saudara kita yang lebih membutuhkan di seluruh Indonesia. Selain itu, donasi kamu juga membantu keberlangsungan pengembangan{' '}
                       <span style={{ color: '#a78bfa', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
                         Glyphic Bot
                       </span>
-                      {' '}serta web ini, tetapi juga sekaligus membantu saudara-saudara kita yang lebih membutuhkan. 🙏"
+                      {' '}dan web ini. Sekecil apapun, pasti berarti besar bagi mereka. Terima kasih! 🙏"
                     </p>
                   </div>
                 </div>
