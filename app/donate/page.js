@@ -7,37 +7,13 @@ import Footer from '../components/Footer';
 
 // ─── Kitabisa Stats Data ─────────────────────────────────────────────────────
 const stats = [
-  { icon: FaChartLine, label: 'Total Donasi', value: '>Rp500M', color: '#facc15' },
-  { icon: FaUsers, label: 'Pengguna', value: '>7 Juta', color: '#f97316' },
-  { icon: FaGlobe, label: '34 Provinsi', value: '170K+', color: '#4ade80' },
+  { icon: '📈', label: 'Total Donasi', value: '>Rp500M', color: '#facc15' },
+  { icon: '👥', label: 'Pengguna', value: '>7 Juta', color: '#f97316' },
+  { icon: '🌏', label: '34 Provinsi', value: '170K+', color: '#4ade80' },
+  { icon: '🏥', label: 'Mitra RS', value: '150+', color: '#38bdf8' },
+  { icon: '📦', label: 'Donasi/Hari', value: '63.000', color: '#a78bfa' },
+  { icon: '📅', label: 'Berdiri', value: '2013', color: '#fb7185' },
 ];
-
-// ─── Stat Card ───────────────────────────────────────────────────────────────
-const StatCard = ({ icon: Icon, label, value, color, delay }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 24 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay }}
-    whileHover={{ y: -4, scale: 1.02 }}
-    className="relative rounded-2xl overflow-hidden text-center p-6"
-    style={{
-      background: 'rgba(255,255,255,0.03)',
-      border: '1px solid rgba(255,255,255,0.08)',
-      backdropFilter: 'blur(10px)',
-    }}
-  >
-    <div className="absolute inset-0 opacity-10"
-      style={{ background: `radial-gradient(circle at 50% 0%, ${color}, transparent 70%)` }} />
-    <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3"
-      style={{ background: `${color}22`, border: `1px solid ${color}44` }}>
-      <Icon style={{ color, fontSize: '20px' }} />
-    </div>
-    <div className="text-3xl font-bold mb-1" style={{ color, fontFamily: "'Space Grotesk', sans-serif" }}>
-      {value}
-    </div>
-    <div className="text-sm font-medium" style={{ color: '#e5e7eb' }}>{label}</div>
-  </motion.div>
-);
 
 // ─── Info Row ────────────────────────────────────────────────────────────────
 const InfoRow = ({ icon, label, value, delay }) => (
@@ -231,13 +207,87 @@ export default function DonatePage() {
           box-shadow: 0 0 32px rgba(14,165,233,0.25);
           transform: translateY(-2px);
         }
+
+        /* ── Marquee / Running Stats Ticker ── */
+        .stats-ticker-wrapper {
+          overflow: hidden;
+          width: 100%;
+          position: relative;
+          padding: 10px 0;
+        }
+        .stats-ticker-wrapper::before,
+        .stats-ticker-wrapper::after {
+          content: '';
+          position: absolute;
+          top: 0; bottom: 0;
+          width: 60px;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .stats-ticker-wrapper::before {
+          left: 0;
+          background: linear-gradient(to right, #0a0a0a, transparent);
+        }
+        .stats-ticker-wrapper::after {
+          right: 0;
+          background: linear-gradient(to left, #0a0a0a, transparent);
+        }
+
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .stats-ticker-track {
+          display: flex;
+          width: max-content;
+          animation: marquee 20s linear infinite;
+        }
+        .stats-ticker-track:hover {
+          animation-play-state: paused;
+        }
+
+        .stat-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 18px;
+          margin: 0 8px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.09);
+          white-space: nowrap;
+          backdrop-filter: blur(8px);
+          transition: background 0.2s;
+          cursor: default;
+        }
+        .stat-pill:hover {
+          background: rgba(255,255,255,0.08);
+        }
+        .stat-pill-icon {
+          font-size: 16px;
+        }
+        .stat-pill-value {
+          font-weight: 700;
+          font-size: 14px;
+          font-family: 'Space Grotesk', sans-serif;
+        }
+        .stat-pill-label {
+          font-size: 11px;
+          color: #6b7280;
+        }
+        .stat-pill-divider {
+          width: 1px;
+          height: 16px;
+          background: rgba(255,255,255,0.12);
+          margin: 0 4px;
+        }
       `}</style>
 
       <div className="min-h-screen text-white grid-bg" style={{ background: '#0a0a0a', fontFamily: "'Space Grotesk', sans-serif" }}>
         <Header />
 
         {/* ── Hero Section ── */}
-        <section className="relative pt-28 pb-10 px-4 overflow-hidden donate-hero-glow">
+        <section className="relative pt-28 pb-6 px-4 overflow-hidden donate-hero-glow">
           {/* Decorative blobs */}
           <div className="absolute top-16 left-1/4 w-64 h-64 rounded-full opacity-5 blur-3xl pointer-events-none"
             style={{ background: 'radial-gradient(circle, #0ea5e9, transparent)' }} />
@@ -276,24 +326,15 @@ export default function DonatePage() {
           </motion.div>
         </section>
 
-        {/* ── Stat Cards ── */}
-        <section className="px-4 pb-10 max-w-3xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {stats.map((s, i) => (
-              <StatCard key={i} {...s} delay={0.1 + i * 0.1} />
-            ))}
-          </div>
-        </section>
-
         {/* ── Main Content ── */}
         <section className="px-4 pb-20 max-w-2xl mx-auto">
 
-          {/* Video Player */}
+          {/* Video Player — NOW ABOVE STATS */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-full mb-6 rounded-2xl overflow-hidden"
+            className="w-full mb-4 rounded-2xl overflow-hidden"
             style={{
               border: '1px solid rgba(14,165,233,0.35)',
               boxShadow: '0 0 40px rgba(14,165,233,0.12), 0 20px 60px rgba(0,0,0,0.6)',
@@ -323,6 +364,26 @@ export default function DonatePage() {
               background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px)',
               pointerEvents: 'none', zIndex: 3
             }} />
+          </motion.div>
+
+          {/* ── Running Stats Ticker — BELOW VIDEO ── */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="stats-ticker-wrapper mb-6"
+          >
+            <div className="stats-ticker-track">
+              {/* Render stats twice for seamless loop */}
+              {[...stats, ...stats].map((s, i) => (
+                <div key={i} className="stat-pill">
+                  <span className="stat-pill-icon">{s.icon}</span>
+                  <div className="stat-pill-divider" />
+                  <span className="stat-pill-value" style={{ color: s.color }}>{s.value}</span>
+                  <span className="stat-pill-label">{s.label}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           {/* ── Teaser / Full Card ── */}
@@ -356,7 +417,7 @@ export default function DonatePage() {
                       Donasi via Kitabisa.com
                     </p>
                     <p style={{ fontSize: '12px', color: '#64748b' }}>
-                      Tap untuk lihat info selengkapnya →
+                      Tap untuk lihat pesan & info sebelum donasi →
                     </p>
                   </div>
                 </button>
@@ -407,8 +468,7 @@ export default function DonatePage() {
                       fontSize: '14px', lineHeight: '1.9', color: '#cbd5e1',
                       fontStyle: 'italic', fontFamily: "'Georgia', serif"
                     }}>
-                      "Terimakasih yang ingin donasi untuk pengembangan web dan bot Glyphic.
-                      Namun, daripada berdonasi langsung kepada saya, alangkah baiknya jika dukungan tersebut disalurkan melalui{' '}
+                      "Namun, daripada berdonasi langsung kepada saya, alangkah baiknya jika dukungan tersebut disalurkan melalui{' '}
                       <span style={{ color: '#38bdf8', fontWeight: '700', fontStyle: 'normal', fontFamily: "'Space Grotesk', sans-serif" }}>
                         Kitabisa.com
                       </span>
