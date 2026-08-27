@@ -390,13 +390,6 @@ const TestimonialPage = () => {
                         <h1 className="text-5xl md:text-6xl font-bold mb-4 gradient-text leading-tight">
                             RYVEN STORE
                         </h1>
-                        <p className="text-base md:text-lg mb-2" style={{ color: "#d1d5db" }}>
-                            Apa kata pelanggan kami?
-                        </p>
-                        <p className="text-sm max-w-xl mx-auto" style={{ color: "#6b7280" }}>
-                            Siap menjadi pilihan terpercaya untuk memenuhi kebutuhan digital Anda.
-                            Berikut adalah cerita nyata dari mereka.
-                        </p>
                     </motion.div>
                 </section>
 
